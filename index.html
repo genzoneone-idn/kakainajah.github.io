@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Player - MPD / MP4 / M3U8</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/shaka-player@4.11.2/dist/shaka-player.compiled.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>▶ Video Player</h1>
+    <p class="subtitle">Support <span>.mpd</span> · <span>.mp4</span> · <span>.m3u8</span></p>
+
+    <form id="urlForm">
+      <input type="text" id="urlInput" placeholder="Paste URL video di sini... (contoh: https://.../video.m3u8)" autofocus>
+      <button type="submit" id="loadBtn">Load</button>
+    </form>
+
+    <div id="errorMsg" class="error hidden"></div>
+
+    <div class="player-wrapper">
+      <video id="video" playsinline></video>
+      <div id="loadingSpinner" class="spinner hidden"></div>
+    </div>
+
+    <div class="controls" id="controls">
+      <button id="playBtn" class="ctrl-btn" title="Play/Pause">▶</button>
+      <button id="muteBtn" class="ctrl-btn" title="Mute">🔊</button>
+      <input type="range" id="volumeBar" min="0" max="1" step="0.05" value="1">
+      <span id="timeLabel">00:00 / 00:00</span>
+      <input type="range" id="seekBar" min="0" max="1000" step="0.1" value="0">
+      <select id="speedSelect" title="Kecepatan">
+        <option value="0.5">0.5x</option>
+        <option value="1" selected>1x</option>
+        <option value="1.25">1.25x</option>
+        <option value="1.5">1.5x</option>
+        <option value="2">2x</option>
+      </select>
+      <select id="qualitySelect" title="Kualitas">
+        <option value="">Auto</option>
+      </select>
+      <button id="fullscreenBtn" class="ctrl-btn" title="Fullscreen">⛶</button>
+    </div>
+
+    <div class="history">
+      <h2>Riwayat URL</h2>
+      <ul id="historyList"></ul>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

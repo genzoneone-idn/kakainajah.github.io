@@ -1,0 +1,156 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #0f0f14;
+  color: #f0f0f5;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container { max-width: 900px; margin: 0 auto; }
+
+h1 { font-size: 1.6rem; }
+
+.subtitle { color: #8a8a99; margin: 6px 0 18px; font-size: 0.95rem; }
+.subtitle span { color: #6c9cff; font-weight: 600; }
+
+form { display: flex; gap: 10px; margin-bottom: 14px; }
+
+input[type="text"] {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid #2c2c38;
+  border-radius: 8px;
+  background: #1a1a24;
+  color: #f0f0f5;
+  font-size: 0.95rem;
+}
+input[type="text"]:focus { outline: none; border-color: #6c9cff; }
+
+button {
+  cursor: pointer;
+  background: #6c9cff;
+  color: #0f0f14;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: background 0.15s;
+}
+form button { padding: 12px 24px; font-size: 0.95rem; }
+button:hover { background: #8cb2ff; }
+
+.error {
+  background: #4a1e1e;
+  border: 1px solid #a33;
+  color: #ffb3b3;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  word-break: break-all;
+}
+.hidden { display: none !important; }
+
+.player-wrapper {
+  position: relative;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+video { width: 100%; height: 100%; display: block; }
+
+.spinner {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px; height: 48px;
+  border: 5px solid rgba(255,255,255,0.2);
+  border-top-color: #6c9cff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #1a1a24;
+  border: 1px solid #2c2c38;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.ctrl-btn {
+  background: #2c2c38;
+  color: #f0f0f5;
+  width: 38px; height: 38px;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.ctrl-btn:hover { background: #3d3d4e; }
+
+input[type="range"] { accent-color: #6c9cff; cursor: pointer; }
+#seekBar { flex: 1; min-width: 120px; }
+#volumeBar { width: 70px; }
+
+#timeLabel {
+  color: #8a8a99;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+select {
+  background: #2c2c38;
+  color: #f0f0f5;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.history { margin-top: 26px; }
+.history h2 { font-size: 1.05rem; margin-bottom: 10px; color: #8a8a99; }
+
+#historyList { list-style: none; }
+#historyList li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #1a1a24;
+  border: 1px solid #2c2c38;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+}
+.hist-url {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.85rem;
+  color: #b8b8c4;
+}
+.hist-type {
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: #2c2c38;
+  color: #6c9cff;
+  border-radius: 5px;
+  padding: 3px 8px;
+}
+.hist-del {
+  background: transparent;
+  color: #7a5a5a;
+  font-size: 0.85rem;
+  padding: 4px 8px;
+}
+.hist-del:hover { background: #4a1e1e; color: #ffb3b3; }
+
+.empty { color: #55555f; font-size: 0.85rem; }
